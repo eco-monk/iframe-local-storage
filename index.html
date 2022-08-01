@@ -1,0 +1,20 @@
+<html>
+  <body>
+    Send "Parent message" <button onclick="sendMessage()">send</button>
+  <iframe id="frameEle" src="https://appsmith-git-feat-parent-message-listener-get-appsmith.vercel.app/app/iframe-storevalue/page2-62e78a7bf0ad2133e820d2d5" style="height:500px;width:1000px;"></iframe>
+    <script>
+       
+   const frameEle = document.getElementById("frameEle");
+   function sendMessage() {
+       console.log("send triggered")
+       frameEle.contentWindow.postMessage("Parent message", '*');
+   }
+   
+   window.addEventListener('message', function (e) {
+      // Get the sent data
+      console.log("from iframe", e);
+  });
+        
+  </script>
+  </<body>
+</html>
